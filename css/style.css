@@ -282,8 +282,7 @@
   }
   
 /* Estilos generales del footer */
-/* Footer */
-
+/* General Footer Styles */
 footer {
   background-color: #258F05;
   color: #fff;
@@ -292,25 +291,17 @@ footer {
 
 .footer-content {
   max-width: 1200px;
-  margin: 0 auto; /* Centramos el contenido */
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Para pantallas grandes, alineamos al inicio */
-  flex-wrap: wrap; /* Permite que los elementos se reorganicen en pantallas pequeñas */
+  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 60px;
 }
 
-/* Logo */
-.footer-section img {
-  max-width: 150px;
-  height: auto;
-}
-
-/* Secciones (Horarios, Dirección, Contacto) */
 .footer-section {
   flex: 1;
-  text-align: left; /* Alineación a la izquierda por defecto */
-  margin: 0 10px; /* Espaciado entre secciones */
+  margin: 0 10px;
 }
 
 .footer-section p {
@@ -325,11 +316,15 @@ footer {
 }
 
 /* Redes sociales */
+.social-icons-wrapper {
+  display: flex;
+  align-items: center; /* Alineamos íconos y logo verticalmente */
+  gap: 15px;
+}
+
 .social-icons {
   display: flex;
   gap: 15px;
-  justify-content: center;
-  align-items: center;
 }
 
 .social-icons > .fab {
@@ -341,6 +336,12 @@ footer {
 
 .social-icons > .fab:hover {
   color: #ddd;
+}
+
+/* Logo URC */
+.footer-logo-urc img {
+  max-width: 150px;
+  height: auto;
 }
   /* Responsividad */
   @media (max-width: 768px) {
@@ -357,37 +358,39 @@ footer {
     }
 
     footer {
-      display: flex;
-      flex-direction: column; /* Apilamos todo verticalmente */
-      align-items: center; /* Centramos todos los elementos */
-      padding: 15px; /* Espaciado compacto */
-      gap: 10px; /* Espaciado entre las secciones */
-      background-color: #4CAF50; /* Aseguramos que el fondo persista */
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
   }
 
   .footer-content {
-      display: flex;
-      flex-direction: column; /* Alineamos verticalmente */
-      align-items: center; /* Centramos horizontalmente */
-      gap: 25px; /* Espacio entre las secciones */
-      text-align: center; /* Centramos el texto */
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 25px;
   }
 
   .footer-section {
-      width: 100%; /* Aseguramos que cada sección ocupe el ancho necesario */
-      text-align: center; /* Centrado del texto */
-      margin: 5px 0; /* Margen más compacto */
+      width: 100%;
+      text-align: center;
+  }
+
+  /* Redes sociales y logo URC */
+  .social-icons-wrapper {
+      flex-direction: column; /* Apilamos íconos y logo en responsive */
+      align-items: center;
+      gap: 10px;
   }
 
   .social-icons {
-      display: flex;
-      justify-content: center; /* Centramos los íconos */
-      gap: 15px; /* Espaciado entre íconos */
+      justify-content: center;
   }
 
-  .social-icons img {
-      width: 25px; /* Tamaño reducido */
-      height: 25px;
+  .footer-logo-urc {
+      margin-top: 10px; /* Separación entre íconos y logo */
   }
+
+  .footer-logo-urc img {
+      max-width: 120px; /* Ajustamos el tamaño del logo en responsive */
   }
-  
+}
