@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Parkinsans:wght@300..800&display=swap');
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Parkinsans', sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Slider */
+  .slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slide {
+    min-width: 100%;
+    position: relative;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
+  
+  .caption {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  
+  .caption h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .caption p {
+    font-size: 1.2rem;
+  }
+  
+  /* Botones de navegación */
+  button.prev,
+  button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 100;
+  }
+  
+  button.prev {
+    left: 10px;
+  }
+  
+  button.next {
+    right: 10px;
+  }
+  
+  /* Indicadores */
+  .indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+  }
+  
+  .indicator {
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .indicator.active {
+    background: green;
+  }
+  
+  /* Efecto de revelado */
+  .reveal {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .content-section {
+    position: relative;
+    width: 100%;
+    padding: 10px 0px;
+    background: #f0f0f0; /* Color de fondo de la sección */
+    overflow: hidden;
+}
+
+.content-section:nth-child(odd) {
+    background: url('') no-repeat center center / cover;
+}
+
+.content-section:nth-child(even) {
+    background: url('/assets/economico.png') center center / cover;
+}
+
+/* Marca de agua 1 (superior izquierda) */
+.content-section::before {
+    content: '';
+    position: absolute;
+    background: url('/assets/w1-1.png') no-repeat center center / contain;
+    opacity: 1; /* Ajusta la opacidad para el efecto de marca de agua */
+    z-index: 1; /* Asegúrate de que las marcas de agua estén detrás del contenido */
+    width: 150px; /* Ajusta el tamaño según sea necesario */
+    height: 150px; /* Ajusta el tamaño según sea necesario */
+    pointer-events: none; /* Evita que interfiera con los clics u otros eventos */
+    top: 20px;
+    left: 20px;
+}
+
+/* Marca de agua 2 (inferior derecha) */
+.content-section::after {
+    content: '';
+    position: absolute;
+    background: url('/assets/w1.png') no-repeat center center / contain;
+    opacity: 1; /* Ajusta la opacidad para el efecto de marca de agua */
+    z-index: 1; /* Asegúrate de que las marcas de agua estén detrás del contenido */
+    width: 150px; /* Ajusta el tamaño según sea necesario */
+    height: 150px; /* Ajusta el tamaño según sea necesario */
+    pointer-events: none; /* Evita que interfiera con los clics u otros eventos */
+    bottom: 20px;
+    right: 20px;
+}
+
+.content-section.section-uso-energia::before {
+    content: '';
+    position: absolute;
+    background: url('') no-repeat center center / contain;
+    opacity: 100;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    bottom: 20px; /* Coloca la marca de agua en la parte inferior */
+    right: 20px;  /* Coloca la marca de agua en la parte derecha */
+    pointer-events: none;
+}
+
+.content-section.section-uso-energia::after {
+    content: '';
+    position: absolute;
+    background: url('/assets/w2.png') no-repeat center center / contain;
+    opacity: 100;
+    z-index: 1;
+    width: 450px;
+    height: 450px;
+    bottom: -40px; /* Coloca la marca de agua en la parte inferior */
+    right: 20px;  /* Coloca la marca de agua en la parte derecha */
+    pointer-events: none;
+}
+
+.content-section.section-sana::before {
+    content: '';
+    position: absolute;
+    background: url('/assets/w3-1.png') no-repeat center center / contain;
+    opacity: 100;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    top: 250px; /* Coloca la marca de agua en la parte inferior */
+    left: 20px;  /* Coloca la marca de agua en la parte derecha */
+    pointer-events: none;
+}
+
+.content-section.section-sana::after {
+    content: '';
+    position: absolute;
+    background: url('/assets/w3.png') no-repeat center center / contain;
+    opacity: 100;
+    z-index: 1;
+    width: 250px;
+    height: 250px;
+    bottom: 220px; /* Coloca la marca de agua en la parte inferior */
+    right: -20px;  /* Coloca la marca de agua en la parte derecha */
+    pointer-events: none;
+}
+
+.content-section.section-cultura::before {
+    content: '';
+    position: absolute;
+    background: url('') no-repeat center center / contain;
+    opacity: 100;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    top: 250px; /* Coloca la marca de agua en la parte inferior */
+    left: 20px;  /* Coloca la marca de agua en la parte derecha */
+    pointer-events: none;
+}
+
+.content-section.section-cultura::after {
+    content: '';
+    position: absolute;
+    background: url('/assets/w4.png') no-repeat center center / contain;
+    opacity: 100;
+    z-index: 1;
+    width: 250px;
+    height: 250px;
+    bottom: 20px; /* Coloca la marca de agua en la parte inferior */
+    right: -20px;  /* Coloca la marca de agua en la parte derecha */
+    pointer-events: none;
+}
+
+/* Contenido principal */
+.content {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Aumentar la separación entre texto e imagen */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    z-index: 2; /* Asegúrate de que el contenido esté por encima de las marcas de agua */
+}
+
+  .text {
+    flex: 1 1 50%;
+    color: #fff;
+    padding: 40px; /* Espacio interno más amplio */
+    border-radius: 10px;
+    margin: 10px 0; /* Espaciado vertical adicional */
+  }
+  
+  .text h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .text p {
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  
+  .image {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0; /* Espaciado vertical adicional */
+  }
+  
+  .image img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  }
+  
+/* Estilos generales del footer */
+/* Footer */
+.footer {
+    background-color: #258F05;
+    color: #fff;
+    padding: 60px 20px; /* Puedes ajustar el padding según el tamaño deseado */
+    display: flex;
+    justify-content: center;
+    align-items: center;  /* Centra verticalmente los elementos */
+    height: 250px;  /* Establece una altura fija para el footer */
+}
+
+.footer-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  /* Centra verticalmente los bloques dentro del footer */
+    flex-wrap: wrap;
+}
+
+.logo img {
+    padding: 20px;
+    max-width: 150px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.contact-info > div {
+    margin-right: 20px;
+}
+
+.contact-info h3 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.contact-info p {
+    font-size: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+}
+
+.social-icons {
+    font-size: 2.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons > .fab{
+    color: #fff;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.social-icons:hover {
+    color: #ddd;
+}
+
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+    }
+  
+    .text {
+      text-align: center;
+    }
+  
+    .image {
+      margin-bottom: 20px;
+    }
+
+.footer {
+        flex-direction: column;  /* Los elementos estarán apilados verticalmente */
+        padding: 20px 10px;  /* Ajustamos padding para dispositivos pequeños */
+    }
+
+    /* Hacemos que el contenido del footer esté centrado */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-info > div {
+        margin-right: 0;
+        margin-bottom: 5px;  /* Espacio entre cada ítem */
+    }
+
+    .social-icons {
+        justify-content: center;
+        margin-top: 10px;
+    }
+  }
+  
